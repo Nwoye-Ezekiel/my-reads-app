@@ -20,7 +20,6 @@ class SearchBook extends Component {
   // The accepted data is passed into the sortBooks function in the App.js to get the sorted books to then store in the state.
   handleChange = (event) => {
     let value = event.target.value.length;
-
     if (value === 0) {
       this.setState({
         error: true,

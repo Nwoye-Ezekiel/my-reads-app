@@ -7,6 +7,8 @@ import CurrentlyReading from "./CurrentlyReading";
 import WantToRead from "./WantToRead";
 import Read from "./Read";
 import SearchBook from "./SearchBook";
+import wallpaperBlack from "./images/wallpaper-black.svg";
+import wallpaperWhite from "./images/wallpaper-white.svg";
 
 class BooksApp extends Component {
   state = {
@@ -65,7 +67,6 @@ class BooksApp extends Component {
     let old = this.state.books;
     let newBook = true;
     book.shelf = shelf;
-
     Object.keys(old).forEach((key) => {
       if (old[key].id === book.id) {
         old[key].shelf = shelf;
@@ -164,6 +165,10 @@ class BooksApp extends Component {
                   <button>Add a book</button>
                 </div>
               </Link>
+              <div className="app-info">
+                <p>Udacity React Project - My Reads App</p>
+                <small>Created by Nwoye Ezekiel</small>
+              </div>
             </div>
           )}
         />

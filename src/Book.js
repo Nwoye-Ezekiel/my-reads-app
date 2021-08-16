@@ -9,6 +9,35 @@ function Book(props) {
   return (
     <div className="book">
       <div className="book-top">
+        {/* Book ratings gotten from the book object is included */}
+        <div className="book-ratings">
+          {props.details.averageRating
+            ? `Ratings: ${props.details.averageRating}`
+            : "No Ratings."}
+        </div>
+
+        {/* Books without a thumbnail is given an image indicating that there isn't a thumbnail present*/}
+        <div
+          className="book-cover"
+          style={{
+            background:
+              props.details.imageLinks &&
+              `url(${props.details.imageLinks.smallThumbnail})`,
+          }}
+        >
+          {/* Book description gotten from the book object is included */}
+          <div className="book-description-container">
+            {props.details.description ? (
+              <div className="book-description">
+                <p className="book-description-header">Description</p>{" "}
+                {props.details.description}
+              </div>
+            ) : (
+              <p className="no-book-description">No Description.</p>
+            )}
+          </div>
+        </div>
+
         {/* The select functionality for switching between different shelves */}
         <div className="book-shelf-changer">
           <select value={props.details.shelf} onChange={handleSelect}>
