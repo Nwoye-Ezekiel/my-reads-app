@@ -6,7 +6,7 @@ function CurrentlyReading(props) {
     <div className="shelf-container">
       <h4 className="shelf-header">Currently reading</h4>
       <div className="books-container">
-        <DisplayBooks books={props.books} />
+        <DisplayBooks books={props.books}  updateCategory={props.updateBook} loader={props.loader} />
       </div>
     </div>
   );
