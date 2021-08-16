@@ -96,3 +96,9 @@ For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 ## Project Description
 
 This project was completed by me (Nwoye Ezekiel) and passes all the requirements. The name of this project is "My Reads App" and this app basically shows a functional book shelf. Books can be moved from one shelf to the other(currently reading, read or want to read) and books can also be removed completely or newly added to a shelf with the aid of a search input field that displays books that matches the input query. This app has a main parent class component that handles all the states in the app and distributes required data to the children components. When launched, a fetch api gets all the books from the server and the result is displayed in their respective shelves. When a user searches for a book, the result passes through a sort function that compares each book with that already stored in the main page while initially setting each book to "none", when a similar book is found, the shelf is changed to that from the main page so that the shelf for the incoming books are corresponding to that on the main page if any. Cases where the book thumbnail isn't available, a placeholder image is set for such, also with books without an author, such cases are handle. A lot of styling and features were added to make the app unique such as (lightmode/darkmode, shelf books count, book ratings, placeholder images, animations, wallpaper design created with figma and many more).
+
+## Refrences
+
+- Thumbnail image is gotten from Google.
+- "No books found" image from the search page and the clock illustration on the wallpaper is gotten from Undraw illustrations.
+- "Empty shelf" icon idea gotten from Google.
