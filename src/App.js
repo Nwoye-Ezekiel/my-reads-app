@@ -102,8 +102,9 @@ class BooksApp extends Component {
             this.state.books[selectedBooksKey].title &&
           allBooks[allBooksKey].id === this.state.books[selectedBooksKey].id
         ) {
-          allBooks[allBooksKey].shelf =
-            this.state.books[selectedBooksKey].shelf;
+          allBooks[allBooksKey].shelf = this.state.books[
+            selectedBooksKey
+          ].shelf;
         }
       });
     });

@@ -8,10 +8,11 @@ Of course, you are free to start this project from scratch if you wish! Just be 
 
 To get started developing right away:
 
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
+- install all project dependencies with `npm install`
+- start the development server with `npm start`
 
 ## What You're Getting
+
 ```bash
 ├── CONTRIBUTING.md
 ├── README.md - This file.
@@ -39,46 +40,47 @@ Remember that good React design practice is to create new JS files for each comp
 
 To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
 
-* [`getAll`](#getall)
-* [`update`](#update)
-* [`search`](#search)
+- [`getAll`](#getall)
+- [`update`](#update)
+- [`search`](#search)
 
 ### `getAll`
 
 Method Signature:
 
 ```js
-getAll()
+getAll();
 ```
 
-* Returns a Promise which resolves to a JSON object containing a collection of book objects.
-* This collection represents the books currently in the bookshelves in your app.
+- Returns a Promise which resolves to a JSON object containing a collection of book objects.
+- This collection represents the books currently in the bookshelves in your app.
 
 ### `update`
 
 Method Signature:
 
 ```js
-update(book, shelf)
+update(book, shelf);
 ```
 
-* book: `<Object>` containing at minimum an `id` attribute
-* shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]  
-* Returns a Promise which resolves to a JSON object containing the response data of the POST request
+- book: `<Object>` containing at minimum an `id` attribute
+- shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]
+- Returns a Promise which resolves to a JSON object containing the response data of the POST request
 
 ### `search`
 
 Method Signature:
 
 ```js
-search(query)
+search(query);
 ```
 
-* query: `<String>`
-* Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
-* These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
+- query: `<String>`
+- Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
+- These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
 
 ## Important
+
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
 
 ## Create React App
@@ -90,3 +92,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Project Description
+
+This project was completed by me (Nwoye Ezekiel) and passes all the requirements. The name of this project is "My Reads App" and this app basically shows a functional book shelf. Books can be moved from one shelf to the other(currently reading, read or want to read) and books can also be removed completely or newly added to a shelf with the aid of a search input field that displays books that matches the input query. This app has a main parent class component that handles all the states in the app and distributes required data to the children components. When launched, a fetch api gets all the books from the server and the result is displayed in their respective shelves. When a user searches for a book, the result passes through a sort function that compares each book with that already stored in the main page while initially setting each book to "none", when a similar book is found, the shelf is changed to that from the main page so that the shelf for the incoming books are corresponding to that on the main page if any. Cases where the book thumbnail isn't available, a placeholder image is set for such, also with books without an author, such cases are handle. A lot of styling and features were added to make the app unique such as (lightmode/darkmode, shelf books count, book ratings, placeholder images, animations, wallpaper design created with figma and many more).
