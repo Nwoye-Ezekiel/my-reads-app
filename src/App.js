@@ -15,6 +15,7 @@ class BooksApp extends Component {
     currentlyReading: [],
     wantToRead: [],
     read: [],
+    loader: false,
   };
 
   // This function is for fetching all the books from the server.
@@ -25,8 +26,8 @@ class BooksApp extends Component {
     });
   }
 
-   // This function is for updating a book that has been assigned to a new shelf.
-   updateBook = (book, shelf) => {
+  // This function is for updating a book that has been assigned to a new shelf.
+  updateBook = (book, shelf) => {
     BooksAPI.update(book, shelf);
     let old = this.state.books;
     let newBook = true;
@@ -44,8 +45,8 @@ class BooksApp extends Component {
     this.refresh(old);
   };
 
-   // This function is for refreshing all the books currently stored in the state.
-   refresh = (books) => {
+  // This function is for refreshing all the books currently stored in the state.
+  refresh = (books) => {
     this.deactivateAnimation();
     this.setState({
       books: books,
@@ -57,6 +58,27 @@ class BooksApp extends Component {
     });
   };
 
+   // This function is for sorting out all the books gotten from the search api to identify similar books already stored.
+   sortBooks = (allBooks) => {
+    Object.keys(allBooks).forEach((allBooksKey) => {
+      allBooks[allBooksKey].shelf = "none";
+      Object.keys(this.state.books).forEach((selectedBooksKey) => {
+        if (
+          allBooks[allBooksKey].title ===
+            this.state.books[selectedBooksKey].title &&
+          allBooks[allBooksKey].id === this.state.books[selectedBooksKey].id
+        ) {
+          allBooks[allBooksKey].shelf = this.state.books[
+            selectedBooksKey
+          ].shelf;
+        }
+      });
+    });
+    this.setState({
+      allBooks,
+    });
+    return this.state.allBooks;
+  };
 
   render() {
     return (
@@ -66,9 +88,21 @@ class BooksApp extends Component {
           path="/"
           render={() => (
             <div className="all-shelves">
-              <CurrentlyReading />
-              <Read />
-              <WantToRead />
+              <CurrentlyReading
+                books={this.state.currentlyReading}
+                updateBook={this.updateBook}
+                loader={this.state.loader}
+              />
+              <Read
+                books={this.state.read}
+                updateBook={this.updateBook}
+                loader={this.state.loader}
+              />
+              <WantToRead
+                books={this.state.wantToRead}
+                updateBook={this.updateBook}
+                loader={this.state.loader}
+              />
               <Link to="/search">
                 <div className="open-search">
                   <button>Add a book</button>
@@ -78,7 +112,19 @@ class BooksApp extends Component {
           )}
         />
 
-        <Route exact path="/search" render={() => <SearchBook />} />
+        <Route
+          exact
+          path="/search"
+          render={() => (
+            <SearchBook
+              updateBook={this.updateBook}
+              books={this.state.allBooks}
+              sortBooks={this.sortBooks}
+              refresh={this.refresh}
+              loader={this.state.loader}
+            />
+          )}
+        />
       </div>
     );
   }
