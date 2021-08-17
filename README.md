@@ -40,7 +40,7 @@ code .
 You can as well view the project which is hosted on [Netlify] by clicking on the link below
 [My Reads App]
 
-# Project overwiew
+# Project overview
 
 The name of this project is **My Reads App** and this app basically shows a functional bookshelf. The first page that opens when launched is the main page, which consists of three shelves which are `Currently reading`, `Read` and `Want to read`.
 
