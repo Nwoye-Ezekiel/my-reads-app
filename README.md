@@ -56,7 +56,7 @@ You can search for books but this is limited to specific books and you can see s
 #### References
 
 - No thumbnail image is gotten from [Google].
-- "Image from the search page is gotten from [unDraw].
+- Image from the search page is gotten from [unDraw].
 
 [create react app]: https://create-react-app.dev
 [netlify]: https://www.netlify.com/
