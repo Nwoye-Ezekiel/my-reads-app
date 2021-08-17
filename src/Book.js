@@ -63,13 +63,7 @@ function Book(props) {
 
       {/* Book authors gotten from the book object is included and those without an author are handled */}
       {props.details.authors ? (
-        props.details.authors.map((author, index) => {
-          return (
-            <li key={index} className="book-author">
-              {author}
-            </li>
-          );
-        })
+        <div className="book-author">{props.details.authors.join(", ")}</div>
       ) : (
         <div className="book-author">No Author</div>
       )}

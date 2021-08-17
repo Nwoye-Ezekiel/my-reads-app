@@ -1,10 +1,12 @@
 import React from "react";
 import DisplayBooks from "./DisplayBooks";
 
-function CurrentlyReading(props) {
+function Shelf(props) {
   return (
     <div className="shelf-container">
-      <h4 className="shelf-header">Currently reading ({props.books.length})</h4>
+      <h4 className="shelf-header">
+        {props.name} ({props.books.length})
+      </h4>
       <div className="books-container">
         <DisplayBooks
           books={props.books}
@@ -16,4 +18,4 @@ function CurrentlyReading(props) {
   );
 }
 
-export default CurrentlyReading;
+export default Shelf;

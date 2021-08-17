@@ -1,24 +1,23 @@
 import React, { Component } from "react";
 import * as BooksAPI from "./BooksAPI";
 import "./App.css";
-import { Link } from "react-router-dom";
-import { Route } from "react-router-dom";
-import CurrentlyReading from "./CurrentlyReading";
-import WantToRead from "./WantToRead";
-import Read from "./Read";
+import { Link, Route } from "react-router-dom";
 import SearchBook from "./SearchBook";
 import wallpaperBlack from "./images/wallpaper-black.svg";
 import wallpaperWhite from "./images/wallpaper-white.svg";
+import Shelf from "./Shelf";
 
 class BooksApp extends Component {
   state = {
     allBooks: [],
     books: [],
-    currentlyReading: [],
-    wantToRead: [],
-    read: [],
     loader: false,
     wallpaperBlack: false,
+    shelvesInfo: {
+      "Currently reading": [],
+      Read: [],
+      "Want to read": [],
+    },
   };
 
   // This function is for fetching all the books from the server.
@@ -82,13 +81,16 @@ class BooksApp extends Component {
   // This function is for refreshing all the books currently stored in the state.
   refresh = (books) => {
     this.deactivateAnimation();
-    this.setState({
-      books: books,
-      currentlyReading: books.filter(
+    let shelvesInfo = {
+      "Currently reading": books.filter(
         (book) => book.shelf === "currentlyReading"
       ),
-      wantToRead: books.filter((book) => book.shelf === "wantToRead"),
-      read: books.filter((book) => book.shelf === "read"),
+      Read: books.filter((book) => book.shelf === "read"),
+      "Want to read": books.filter((book) => book.shelf === "wantToRead"),
+    };
+    this.setState({
+      books: books,
+      shelvesInfo: shelvesInfo,
     });
   };
 
@@ -146,21 +148,18 @@ class BooksApp extends Component {
                   change background
                 </button>
               </div>
-              <CurrentlyReading
-                books={this.state.currentlyReading}
-                updateBook={this.updateBook}
-                loader={this.state.loader}
-              />
-              <Read
-                books={this.state.read}
-                updateBook={this.updateBook}
-                loader={this.state.loader}
-              />
-              <WantToRead
-                books={this.state.wantToRead}
-                updateBook={this.updateBook}
-                loader={this.state.loader}
-              />
+
+              {Object.keys(this.state.shelvesInfo).map((shelf, index) => {
+                return (
+                  <Shelf
+                    books={this.state.shelvesInfo[shelf]}
+                    updateBook={this.updateBook}
+                    loader={this.state.loader}
+                    name={shelf}
+                    key={index}
+                  />
+                );
+              })}
               <Link to="/search">
                 <div className="open-search">
                   <button>Add a book</button>

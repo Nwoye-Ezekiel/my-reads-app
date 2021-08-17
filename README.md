@@ -1,104 +1,65 @@
-# MyReads Project
+# Project Setup
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+This project was created with [Create React App]
+To clone this project, run the follow commands on your terminal
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
-
-## TL;DR
-
-To get started developing right away:
-
-- install all project dependencies with `npm install`
-- start the development server with `npm start`
-
-## What You're Getting
-
-```bash
-├── CONTRIBUTING.md
-├── README.md - This file.
-├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
-├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
-├── public
-│   ├── favicon.ico # React Icon, You may change if you wish.
-│   └── index.html # DO NOT MODIFY
-└── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
-    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
-    ├── icons # Helpful images for your app. Use at your discretion.
-    │   ├── add.svg
-    │   ├── arrow-back.svg
-    │   └── arrow-drop-down.svg
-    ├── index.css # Global styles. You probably won't need to change anything here.
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+```sh
+git clone https://github.com/Nwoye-Ezekiel/my-reads-app.git
 ```
 
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
+navigate to the project's directory
 
-## Backend Server
-
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
-
-- [`getAll`](#getall)
-- [`update`](#update)
-- [`search`](#search)
-
-### `getAll`
-
-Method Signature:
-
-```js
-getAll();
+```sh
+cd my-reads-app
 ```
 
-- Returns a Promise which resolves to a JSON object containing a collection of book objects.
-- This collection represents the books currently in the bookshelves in your app.
+Install all the project dependencies
 
-### `update`
-
-Method Signature:
-
-```js
-update(book, shelf);
+```sh
+npm install
 ```
 
-- book: `<Object>` containing at minimum an `id` attribute
-- shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]
-- Returns a Promise which resolves to a JSON object containing the response data of the POST request
+Start the development server to view the project on your browser
 
-### `search`
-
-Method Signature:
-
-```js
-search(query);
+```sh
+npm start
 ```
 
-- query: `<String>`
-- Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
-- These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
+if your browser doesn't open by default after loading, open your browser and type this link.
 
-## Important
+`http://localhost:3000`
 
-The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
+You are free to tweak the code to fit your own taste!
 
-## Create React App
+You can quickly do so by running this command on your terminal to open your code editor
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+```sh
+code .
+```
 
-## Contributing
+You can as well view the project which is hosted on [Netlify] by clicking on the link below
+[My Reads App]
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+# Project overwiew
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+The name of this project is **My Reads App** and this app basically shows a functional bookshelf. The first page that opens when launched is the main page, which consists of three shelves which are `Currently reading`, `Read` and `Want to read`.
 
-## Project Description
+Books can be moved from one shelf to the other and can also be removed completely or newly added to a shelf with the aid of a dropdown button attached to each book at the bottom right.
 
-This project was completed by me (Nwoye Ezekiel) and passes all the requirements. The name of this project is "My Reads App" and this app basically shows a functional book shelf. Books can be moved from one shelf to the other(currently reading, read or want to read) and books can also be removed completely or newly added to a shelf with the aid of a search input field that displays books that matches the input query. This app has a main parent class component that handles all the states in the app and distributes required data to the children components. When launched, a fetch api gets all the books from the server and the result is displayed in their respective shelves. When a user searches for a book, the result passes through a sort function that compares each book with that already stored in the main page while initially setting each book to "none", when a similar book is found, the shelf is changed to that from the main page so that the shelf for the incoming books are corresponding to that on the main page if any. Cases where the book thumbnail isn't available, a placeholder image is set for such, also with books without an author, such cases are handle. A lot of styling and features were added to make the app unique such as (lightmode/darkmode, shelf books count, book ratings, placeholder images, animations, wallpaper design created with figma and many more).
+You can search for new books by navigating to the search page by clicking on the button that's fixed to the screen at the bottom right with a plus sign on it.
 
-## References
+You can search for books but this is limited to specific books and you can see some valid search terms on the search page background text. There are certain features added to make the design more unique such as lightmode/darkmode, books count etc.
 
-- Thumbnail image is gotten from Google.
-- "No books found" image from the search page and the clock illustration on the wallpaper is gotten from Undraw illustrations.
-- "Empty shelf" icon idea gotten from Google.
+**I'll give you the privilege to explore the rest.**
+(hint: hover on a book thumbnail to see for yourself)
+
+#### References
+
+- No thumbnail image is gotten from [Google].
+- "Image from the search page is gotten from [unDraw].
+
+[create react app]: https://create-react-app.dev
+[netlify]: https://www.netlify.com/
+[my reads app]: https://www.the-reads-app.netlify.app/
+[google]: https://www.google.com/
+[undraw]: https://undraw.co/
